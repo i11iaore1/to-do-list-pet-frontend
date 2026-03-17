@@ -1,0 +1,9 @@
+.panel-container {
+  grid-area: panel;
+  width: 100%;
+  display: grid;
+  column-gap: var(--sp);
+  padding: var(--sp-2);
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "search add-button";
+}

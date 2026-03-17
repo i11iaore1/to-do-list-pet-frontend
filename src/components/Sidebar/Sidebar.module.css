@@ -1,0 +1,13 @@
+.sidebar {
+  grid-area: sidebar;
+  width: 12rem;
+  /* hardcoded */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "logo" "tablist" "themeswitcher";
+
+  padding: var(--sp-3);
+  row-gap: var(--sp-2);
+
+  background-color: var(--sidebar-bg);
+}

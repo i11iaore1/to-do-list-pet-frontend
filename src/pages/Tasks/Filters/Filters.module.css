@@ -1,0 +1,16 @@
+.filters-container {
+  grid-area: filters;
+  height: 100%;
+  width: 15rem;
+  /* hardcoded */
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--sp-2);
+  padding: var(--sp-2);
+
+  background-color: var(--filters-bg);
+  border-right: var(--thin) solid var(--line);
+
+  font-size: var(--m-font);
+  color: var(--text);
+}

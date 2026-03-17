@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/* base styles */
+:root {
+  /* font */
+  --font-main: "Roboto", sans-serif;
+  --base-font-weight: 400;
+  --bold-font-weight: 600;
+  --min-line-height: 1;
+  --base-line-height: 1.5;
+
+  /* 320px <= vw <= 1280px */
+  /* 14-16px */
+  --s-font: clamp(0.875rem, 0.8333rem + 0.2083vw, 1rem);
+  /* 16-20px */
+  --m-font: clamp(1rem, 0.9167rem + 0.4167vw, 1.25rem);
+  /* 20-26 */
+  --l-font: clamp(1.25rem, 1.125rem + 0.625vw, 1.625rem);
+
+  --thin: 2px;
+  --sp: 5px;
+  --sp-2: calc(var(--sp) * 2);
+  --sp-3: calc(var(--sp) * 3);
+  --sp-4: calc(var(--sp) * 4);
+  --sp-6: calc(var(--sp) * 6);
+  --sp-8: calc(var(--sp) * 8);
+
+  /* colors */
+
+  --black: rgb(0, 0, 0);
+  --darkest-gray: rgb(21, 24, 31);
+  --dark-gray: rgb(37, 42, 48);
+  --gray: rgb(129, 132, 139);
+  --light-gray: rgb(207, 213, 225);
+  --lighter-gray: rgb(242, 243, 245);
+  --lightest-gray: rgb(250, 250, 250);
+
+  --blue-gray: rgb(48, 51, 86);
+  --dark-blue-gray: rgb(32, 41, 50);
+
+  --blue: rgb(53, 126, 231);
+  --dark-blue: rgb(31, 67, 119);
+  --red: rgb(188, 0, 0);
+
+  /* --- LIGHT theme palette --- */
+  /* general */
+  --text: var(--black);
+  --placeholder: var(--gray);
+  --line: var(--light-gray);
+  --shadow: var(--gray);
+  --active: var(--blue);
+
+  /* sidebar */
+  --sidebar-bg: var(--dark-blue-gray);
+  --logo: var(--lightest-gray);
+  --current-tab-bg: var(--blue-gray);
+  --tab-text: var(--light-gray);
+  --theme-switcher-bg: var(--lighter-gray);
+  --theme-switcher-icon: var(--darkest-gray);
+
+  /* main */
+  --main-bg: var(--lighter-gray);
+
+  /* TASKS PAGE */
+  /* filters */
+  --filters-bg: var(--lightest-gray);
+  --current-chip-bg: var(--active);
+  --current-chip-text: var(--lightest-gray);
+  /* calendar */
+  --calendar-bg: var(--lightest-gray);
+  --selected-calendar-cell-bg: var(--active);
+  --selected-calendar-cell-text: var(--lightest-gray);
+  /* panel */
+  /* search */
+  --search-bg: var(--lightest-gray);
+
+  /* card */
+  --card-bg: var(--lightest-gray);
+  --card-clickable: var(
+    --gray
+  ); /* card checkboxes, card icons (edit, delete) */
+}
+
+/* --- DARK theme palette --- */
+:root.theme-dark {
+  /* general */
+  --text: var(--lightest-gray);
+  --line: var(--dark-gray);
+
+  /* sidebar */
+  --theme-switcher-bg: var(--darkest-gray);
+  --theme-switcher-icon: var(--lighter-gray);
+
+  /* main */
+  --main-bg: var(--darkest-gray);
+  --card-bg: var(--dark-gray);
+
+  /* TASKS PAGE */
+  /* filters */
+  --filters-bg: var(--darkest-gray);
+  /* calendar */
+  --calendar-bg: var(--darkest-gray);
+  /* panel */
+  /* search */
+  --search-bg: var(--darkest-gray);
+}
+
+/* reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+
+  user-select: none;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-main);
+  font-weight: var(--base-font-weight);
+  line-height: 1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+svg {
+  fill: currentColor;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}

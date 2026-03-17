@@ -1,0 +1,10 @@
+.vertical-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--sp);
+}
+
+.separator {
+  height: var(--thin);
+  background-color: var(--line);
+}

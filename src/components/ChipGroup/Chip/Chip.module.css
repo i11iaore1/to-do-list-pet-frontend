@@ -1,0 +1,20 @@
+.chip {
+  display: flex;
+  justify-content: center;
+  padding: var(--sp) var(--sp-2);
+
+  font-size: var(--s-font);
+  border-radius: var(--sp-2);
+
+  border: var(--thin) solid var(--line);
+
+  white-space: nowrap;
+
+  cursor: pointer;
+}
+
+.chip.current {
+  background-color: var(--current-chip-bg);
+  border-color: var(--current-chip-bg);
+  color: var(--current-chip-text);
+}

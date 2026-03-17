@@ -1,0 +1,89 @@
+.popover {
+  border-radius: var(--sp-2);
+  overflow: auto;
+  background-color: var(--calendar-bg);
+  box-shadow: 0px 0px var(--sp) 0px var(--shadow);
+  -webkit-box-shadow: 0px 0px var(--sp) 0px var(--shadow);
+  -moz-box-shadow: 0px 0px var(--sp) 0px var(--shadow);
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+
+  row-gap: var(--sp);
+  padding: var(--sp-2);
+  color: var(--text);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  column-gap: var(--sp);
+
+  padding-bottom: var(--sp-2);
+  border-bottom: var(--thin) solid var(--line);
+}
+
+.header .heading {
+  text-align: center;
+  font-size: var(--l-font);
+  font-weight: var(--bold-font-weight);
+}
+
+.header .nav-button {
+  color: var(--placeholder);
+}
+
+.header .nav-button:hover {
+  color: var(--text);
+}
+
+.grid {
+  border-collapse: collapse;
+}
+
+.grid th {
+  font-size: var(--m-font);
+  font-weight: var(--bold-font-weight);
+  padding-bottom: var(--sp);
+}
+
+.grid th,
+.grid td {
+  text-align: center;
+  vertical-align: middle;
+  height: var(--s-font);
+}
+
+.grid .cell {
+  font-size: var(--s-font);
+  padding: var(--sp);
+  border: var(--thin) solid transparent;
+
+  border-radius: 50%;
+  cursor: pointer;
+
+  &[data-outside-month] {
+    color: var(--placeholder);
+    cursor: default;
+  }
+
+  &[data-hovered] {
+    border-color: var(--line);
+  }
+
+  &[data-selected] {
+    background-color: var(--selected-calendar-cell-bg);
+    color: var(--selected-calendar-cell-text);
+    border-color: var(--calendar-bg);
+  }
+
+  /* &[data-unavailable] {
+  } */
+
+  /* &[data-invalid] {
+  } */
+}

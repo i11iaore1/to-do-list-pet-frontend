@@ -1,0 +1,8 @@
+.list-container {
+  height: 100%;
+  display: flex;
+  row-gap: var(--sp);
+  padding: var(--sp);
+
+  grid-area: list;
+}

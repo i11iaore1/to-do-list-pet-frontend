@@ -1,0 +1,10 @@
+.tab-grid {
+  height: 100%;
+  width: 100%;
+  display: grid;
+
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+
+  grid-template-areas: "filters panel" "filters list";
+}

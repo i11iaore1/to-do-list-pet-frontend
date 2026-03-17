@@ -1,0 +1,7 @@
+.sidebar-layout-grid {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "sidebar main";
+}

@@ -1,0 +1,17 @@
+.switch-button {
+  grid-area: themeswitcher;
+  justify-self: end;
+
+  aspect-ratio: 1;
+  padding: var(--sp-2);
+  border-radius: var(--sp-2);
+  border-radius: 50%;
+
+  background-color: var(--theme-switcher-bg);
+  color: var(--theme-switcher-icon);
+}
+
+.switch-button svg {
+  height: var(--sp-8);
+  width: auto;
+}

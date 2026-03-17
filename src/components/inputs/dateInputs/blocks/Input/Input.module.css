@@ -1,0 +1,11 @@
+.date-input {
+  display: flex;
+  flex-direction: row;
+  column-gap: var(--thin);
+
+  font-size: var(--input-font-size);
+}
+
+.date-input .segment[data-focused] {
+  color: var(--active);
+}

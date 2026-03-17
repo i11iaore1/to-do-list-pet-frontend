@@ -1,0 +1,31 @@
+.search-container {
+  grid-area: search;
+  justify-self: center;
+  align-self: center;
+
+  display: flex;
+  flex-direction: row;
+  column-gap: var(--sp);
+  padding: var(--sp) var(--sp-2);
+
+  border-radius: var(--sp);
+
+  background-color: var(--search-bg);
+  color: var(--placeholder);
+  outline: var(--thin) solid var(--line);
+}
+
+.search-container input {
+  font-size: var(--m-font);
+  background-color: inherit;
+  color: var(--text);
+}
+
+.search-container input::placeholder {
+  color: var(--placeholder);
+}
+
+.search-container svg {
+  height: auto;
+  width: var(--m-font);
+}

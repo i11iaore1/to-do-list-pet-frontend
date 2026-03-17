@@ -1,0 +1,24 @@
+.group {
+  --input-font-size: var(--s-font);
+
+  width: max-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  column-gap: var(--sp-2);
+  padding: var(--sp) var(--sp-2);
+  border-radius: var(--sp-2);
+
+  border: var(--thin) solid var(--line);
+}
+
+.cal-button {
+  height: var(--input-font-size);
+  color: var(--placeholder);
+}
+
+.cal-button svg {
+  height: 100%;
+  width: auto;
+}
