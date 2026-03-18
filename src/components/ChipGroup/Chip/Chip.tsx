@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import s from "./Chip.module.css";
 
 export interface ChipInfo<T> {
@@ -13,7 +14,7 @@ interface ChipProps<T> extends ChipInfo<T> {
 export const Chip = <T extends string>(props: ChipProps<T>) => {
   return (
     <div
-      className={`${s["chip"]} ${props.isCurrent ? s["current"] : ""}`}
+      className={clsx(s["chip"], { [s["current"]]: props.isCurrent })}
       onClick={props.onClick}
     >
       {props.title}

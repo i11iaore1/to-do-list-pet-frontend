@@ -1,9 +1,9 @@
 import type { ChipInfo } from "../../../../../components/ChipGroup/Chip/Chip";
 import ChipGroup from "../../../../../components/ChipGroup/ChipGroup";
 import {
-  useTaskStatusFilter,
+  useStatusFilter,
   type StatusChoice,
-} from "../../../../../contexts/taskFilterContexts/TaskStatusFilterContext";
+} from "../../../../../contexts/TaskFilterContext/subContexts/StatusFilterContext";
 import FilterSection from "../FilterSection";
 
 const StatusChipList: ChipInfo<StatusChoice>[] = [
@@ -22,7 +22,7 @@ const StatusChipList: ChipInfo<StatusChoice>[] = [
 ];
 
 const StatusSection = () => {
-  const { status, setStatus } = useTaskStatusFilter();
+  const { status, setStatus } = useStatusFilter();
 
   return (
     <FilterSection title="Status">

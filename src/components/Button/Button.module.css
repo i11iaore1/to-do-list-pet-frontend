@@ -1,0 +1,11 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--sp) var(--sp-2);
+  border-radius: var(--sp-2);
+  white-space: nowrap;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+}

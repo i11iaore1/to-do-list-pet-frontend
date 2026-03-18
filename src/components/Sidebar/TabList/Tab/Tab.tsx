@@ -1,7 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 import s from "./Tab.module.css";
+import clsx from "clsx";
 
 export interface TabProps {
   path: string;
@@ -13,7 +13,7 @@ export interface TabProps {
 const Tab = (props: TabProps) => {
   return (
     <Link to={props.path}>
-      <li className={`${s["tab"]} ${props.isCurrent ? s["current"] : ""}`}>
+      <li className={clsx(s["tab"], { [s["current"]]: props.isCurrent })}>
         <props.icon />
         <p>{props.name}</p>
       </li>

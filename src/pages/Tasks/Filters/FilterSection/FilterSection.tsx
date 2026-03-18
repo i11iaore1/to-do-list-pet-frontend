@@ -1,5 +1,3 @@
-import React from "react";
-
 import s from "./FilterSection.module.css";
 
 interface FilterSectionProps {

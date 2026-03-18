@@ -47,8 +47,12 @@
   --text: var(--black);
   --placeholder: var(--gray);
   --line: var(--light-gray);
-  --shadow: var(--gray);
+  --shadow: 0px 0px var(--sp) 0px var(--gray);
   --active: var(--blue);
+
+  /* button */
+  --button-bg: var(--active);
+  --button-text: var(--lightest-gray);
 
   /* sidebar */
   --sidebar-bg: var(--dark-blue-gray);

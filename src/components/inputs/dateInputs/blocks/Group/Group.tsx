@@ -1,4 +1,3 @@
-import React from "react";
 import { Group as AriaGroup, Button } from "react-aria-components";
 
 import CalendarIcon from "../../../../icons/CalendarIcon";

@@ -4,6 +4,7 @@
   width: 15rem;
   /* hardcoded */
   display: flex;
+  align-items: center;
   flex-direction: column;
   row-gap: var(--sp-2);
   padding: var(--sp-2);

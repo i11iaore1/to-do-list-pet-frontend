@@ -4,9 +4,12 @@ import type { ChipInfo } from "../../../../../components/ChipGroup/Chip/Chip";
 import { DateInput } from "../../../../../components/inputs/dateInputs/DateInput/DateInput";
 import { DateRangeInput } from "../../../../../components/inputs/dateInputs/DateRangeInput/DateRangeInput";
 import {
-  useTaskDeadlineFilter,
+  useDeadlineFilter,
   type DeadlineTypeChoice,
-} from "../../../../../contexts/taskFilterContexts/TaskDeadlineFilterContext";
+} from "../../../../../contexts/TaskFilterContext/subContexts/DeadlineFilterContext";
+
+import { today, getLocalTimeZone } from "@internationalized/date";
+import { useMemo } from "react";
 
 const DeadlineFilterChipList: ChipInfo<DeadlineTypeChoice>[] = [
   {
@@ -39,7 +42,9 @@ const DeadlineSection = () => {
     setDateValue,
     dateRange,
     setDateRange,
-  } = useTaskDeadlineFilter();
+  } = useDeadlineFilter();
+
+  const todayDateValue = useMemo(() => today(getLocalTimeZone()), []);
 
   return (
     <FilterSection title="Deadline">
@@ -50,6 +55,7 @@ const DeadlineSection = () => {
       />
       {deadlineType === "date" && (
         <DateInput
+          minValue={todayDateValue}
           value={dateValue}
           onChange={(value) => {
             setDateValue(value);
@@ -58,6 +64,7 @@ const DeadlineSection = () => {
       )}
       {deadlineType === "range" && (
         <DateRangeInput
+          minValue={todayDateValue}
           value={dateRange}
           onChange={(value) => {
             setDateRange(value);

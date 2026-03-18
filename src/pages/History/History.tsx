@@ -1,4 +1,3 @@
-import React from "react";
 import SidebarLayout from "../../layouts/SidebarLayout/SidebarLayout";
 
 const History = () => {
