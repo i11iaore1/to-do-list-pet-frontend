@@ -1,15 +1,13 @@
-import Logo from "./Logo/Logo";
+import LogoIcon from "../icons/LogoIcon";
 import TabList from "./TabList/TabList";
-import ThemeSwitcher from "./ThemeSwitcher/ThemeSwitcher";
 
 import s from "./Sidebar.module.css";
 
 const Sidebar = () => {
   return (
     <aside className={s["sidebar"]}>
-      <Logo />
+      <LogoIcon className={s["logo"]} />
       <TabList />
-      <ThemeSwitcher />
     </aside>
   );
 };

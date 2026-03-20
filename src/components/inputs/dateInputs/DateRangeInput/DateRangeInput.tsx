@@ -13,7 +13,7 @@ import Popover from "../blocks/Popover/Popover";
 import s from "./DateRangeInput.module.css";
 
 interface DateRangeInputProps {
-  minValue: DateValue;
+  minValue?: DateValue;
   value: DateRange | null;
   onChange: (value: DateRange | null) => void;
 }
@@ -22,7 +22,7 @@ export const DateRangeInput = (props: DateRangeInputProps) => {
   return (
     <Wrapper
       label="Date range"
-      minValue={props.minValue}
+      {...(props.minValue !== undefined && { minValue: props.minValue })}
       pickerComponent={DateRangePicker}
       value={props.value}
       onChange={props.onChange}

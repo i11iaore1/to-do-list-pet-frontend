@@ -1,10 +1,13 @@
-import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
+import NotFoundIcon from "../../components/icons/NotFoundIcon";
+
+import s from "./NotFound.module.css";
 
 const NotFound = () => {
   return (
-    <DefaultLayout>
-      <h1>Page Not Found</h1>
-    </DefaultLayout>
+    <div className={s["not-found-container"]}>
+      <NotFoundIcon className={s["svg"]} />
+      <p className={s["description"]}>No such page</p>
+    </div>
   );
 };
 

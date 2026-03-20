@@ -7,6 +7,7 @@ import s from "./Filters.module.css";
 const Filters = () => {
   return (
     <div className={s["filters-container"]}>
+      <label className={s["label"]}>Filters</label>
       <StatusSection />
       <DeadlineSection />
       <ResetButton />

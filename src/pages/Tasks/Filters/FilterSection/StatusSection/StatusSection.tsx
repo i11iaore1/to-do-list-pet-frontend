@@ -8,16 +8,20 @@ import FilterSection from "../FilterSection";
 
 const StatusChipList: ChipInfo<StatusChoice>[] = [
   {
-    chipId: "all",
-    title: "All",
-  },
-  {
     chipId: "issued",
     title: "Issued",
   },
   {
     chipId: "closed",
     title: "Closed",
+  },
+  {
+    chipId: "expired",
+    title: "Expired",
+  },
+  {
+    chipId: "all",
+    title: "All",
   },
 ];
 

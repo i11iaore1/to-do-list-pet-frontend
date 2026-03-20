@@ -1,0 +1,43 @@
+.input-container {
+  /* Redefine theese for custom styles */
+  --facade-inactive-bg: inherit;
+  --facade-active-bg: inherit;
+  --facade-active-color: inherit;
+
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  position: relative;
+  column-gap: var(--sp);
+  cursor: pointer;
+}
+
+.input {
+  display: none;
+}
+
+.facade {
+  box-sizing: content-box;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: var(--sp);
+  border-radius: var(--sp-2);
+  height: var(--l-font);
+  font-size: var(--l-font);
+
+  background-color: var(--facade-inactive-bg);
+
+  border: var(--thin) solid var(--card-clickable);
+}
+
+.input:checked + .facade {
+  background-color: var(--facade-active-bg);
+  color: var(--facade-active-color);
+}
+
+.input:checked + .facade::after {
+  content: "✓";
+}

@@ -1,29 +1,29 @@
 import { Route, Routes } from "react-router-dom";
 import type { ComponentType } from "react";
 import Tasks from "./Tasks/Tasks";
-import History from "./History/History";
 import NotFound from "./NotFound/NotFound";
+import Home from "./Home/Home";
 
-const PAGE_ID_LIST = ["tasks", "history", "not-found"] as const;
+const PAGE_ID_LIST = ["home", "tasks", "not-found"] as const;
 export type PageId = (typeof PAGE_ID_LIST)[number];
 
 interface PageInfo {
   path: string;
-  element: ComponentType;
+  component: ComponentType;
 }
 
 export const PAGES: Record<PageId, PageInfo> = {
+  home: {
+    path: "/",
+    component: Home,
+  },
   tasks: {
     path: "/tasks",
-    element: Tasks,
-  },
-  history: {
-    path: "/history",
-    element: History,
+    component: Tasks,
   },
   "not-found": {
     path: "*",
-    element: NotFound,
+    component: NotFound,
   },
 };
 
@@ -33,7 +33,7 @@ export const Pages = () => {
       {Object.entries(PAGES).map(([pageId, pageInfo]) => (
         <Route
           path={pageInfo.path}
-          element={<pageInfo.element />}
+          element={<pageInfo.component />}
           key={pageId}
         />
       ))}

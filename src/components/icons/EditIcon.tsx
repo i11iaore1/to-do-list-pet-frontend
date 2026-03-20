@@ -1,4 +1,4 @@
-const EditIcon = () => {
+export const EditIcon = () => {
   return (
     <svg
       version="1.0"

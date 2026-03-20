@@ -1,8 +1,0 @@
-.logo {
-  grid-area: logo;
-
-  width: 100%;
-  height: auto;
-
-  fill: var(--logo);
-}

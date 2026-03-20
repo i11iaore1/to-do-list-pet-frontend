@@ -1,4 +1,8 @@
 .button {
+  /* Redefine theese for custom styles */
+  --button-bg: var(--active);
+  --button-text: var(--lightest-gray);
+
   display: flex;
   justify-content: center;
   align-items: center;

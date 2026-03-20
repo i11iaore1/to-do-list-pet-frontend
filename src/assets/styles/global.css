@@ -7,7 +7,7 @@
   --base-font-weight: 400;
   --bold-font-weight: 600;
   --min-line-height: 1;
-  --base-line-height: 1.5;
+  --base-line-height: 1.3;
 
   /* 320px <= vw <= 1280px */
   /* 14-16px */
@@ -17,13 +17,14 @@
   /* 20-26 */
   --l-font: clamp(1.25rem, 1.125rem + 0.625vw, 1.625rem);
 
-  --thin: 2px;
+  --thin: 1.5px;
   --sp: 5px;
   --sp-2: calc(var(--sp) * 2);
   --sp-3: calc(var(--sp) * 3);
   --sp-4: calc(var(--sp) * 4);
   --sp-6: calc(var(--sp) * 6);
   --sp-8: calc(var(--sp) * 8);
+  --sp-16: calc(var(--sp) * 16);
 
   /* colors */
 
@@ -31,6 +32,7 @@
   --darkest-gray: rgb(21, 24, 31);
   --dark-gray: rgb(37, 42, 48);
   --gray: rgb(129, 132, 139);
+  --transparent-gray: rgba(129, 132, 139, 0.5);
   --light-gray: rgb(207, 213, 225);
   --lighter-gray: rgb(242, 243, 245);
   --lightest-gray: rgb(250, 250, 250);
@@ -39,24 +41,24 @@
   --dark-blue-gray: rgb(32, 41, 50);
 
   --blue: rgb(53, 126, 231);
+  --transparent-blue: rgba(53, 126, 231, 0.5);
   --dark-blue: rgb(31, 67, 119);
   --red: rgb(188, 0, 0);
+  --transparent-red: rgba(188, 0, 0, 0.5);
+  --dark-red: rgb(87, 0, 0);
 
   /* --- LIGHT theme palette --- */
   /* general */
   --text: var(--black);
+  --neutral-contrast: var(--darkest-gray);
   --placeholder: var(--gray);
   --line: var(--light-gray);
   --shadow: 0px 0px var(--sp) 0px var(--gray);
   --active: var(--blue);
 
-  /* button */
-  --button-bg: var(--active);
-  --button-text: var(--lightest-gray);
-
   /* sidebar */
   --sidebar-bg: var(--dark-blue-gray);
-  --logo: var(--lightest-gray);
+  --sidebar-logo: var(--lightest-gray);
   --current-tab-bg: var(--blue-gray);
   --tab-text: var(--light-gray);
   --theme-switcher-bg: var(--lighter-gray);
@@ -80,15 +82,22 @@
 
   /* card */
   --card-bg: var(--lightest-gray);
-  --card-clickable: var(
-    --gray
-  ); /* card checkboxes, card icons (edit, delete) */
+  --card-clickable: var(--gray);
+  --card-clickable-hover: var(--darkest-gray);
+  /* status */
+  --card-status-issued-bg: var(--transparent-blue);
+  --card-status-issued-color: var(--dark-blue);
+  --card-status-closed-bg: var(--transparent-gray);
+  --card-status-closed-color: var(--dark-gray);
+  --card-status-expired-bg: var(--transparent-red);
+  --card-status-expired-color: var(--dark-red);
 }
 
 /* --- DARK theme palette --- */
 :root.theme-dark {
   /* general */
   --text: var(--lightest-gray);
+  --neutral-contrast: var(--lighter-gray);
   --line: var(--dark-gray);
 
   /* sidebar */
@@ -97,7 +106,6 @@
 
   /* main */
   --main-bg: var(--darkest-gray);
-  --card-bg: var(--dark-gray);
 
   /* TASKS PAGE */
   /* filters */
@@ -107,6 +115,13 @@
   /* panel */
   /* search */
   --search-bg: var(--darkest-gray);
+  /* card */
+  --card-bg: var(--dark-gray);
+  --card-clickable-hover: var(--lighter-gray);
+  /* status */
+  --card-status-issued-color: var(--lightest-gray);
+  --card-status-closed-color: var(--lightest-gray);
+  --card-status-expired-color: var(--lightest-gray);
 }
 
 /* reset */

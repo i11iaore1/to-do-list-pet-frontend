@@ -1,4 +1,6 @@
 .main {
   grid-area: main;
+  position: relative;
+
   background-color: var(--main-bg);
 }

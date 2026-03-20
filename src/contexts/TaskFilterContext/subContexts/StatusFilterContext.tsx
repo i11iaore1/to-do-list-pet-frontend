@@ -1,8 +1,8 @@
 import { createContext, useContext } from "react";
 
-const STATUS_CHOICES = ["all", "issued", "closed"] as const;
+const STATUS_CHOICES = ["all", "issued", "closed", "expired"] as const;
 export type StatusChoice = (typeof STATUS_CHOICES)[number];
-export const DEFAULT_STATUS: StatusChoice = "all";
+export const DEFAULT_STATUS: StatusChoice = "issued";
 
 export interface StatusFilterContextValue {
   status: StatusChoice;

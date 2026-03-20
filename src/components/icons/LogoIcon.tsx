@@ -1,9 +1,13 @@
-import s from "./Logo.module.css";
+import clsx from "clsx";
 
-const Logo = () => {
+interface LogoIconProps {
+  className?: string;
+}
+
+const LogoIcon = (props: LogoIconProps) => {
   return (
     <svg
-      className={s["logo"]}
+      className={clsx(props.className)}
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1030 320"
@@ -23,4 +27,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default LogoIcon;

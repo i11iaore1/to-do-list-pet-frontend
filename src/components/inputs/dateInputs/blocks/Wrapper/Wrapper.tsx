@@ -15,7 +15,7 @@ type PickerComponentProps<T> = T extends DateRange
 interface WrapperProps<T extends DateValue | DateRange> {
   pickerComponent: React.ComponentType<PickerComponentProps<T>>;
   label: string;
-  minValue: DateValue;
+  minValue?: DateValue;
   value: T | null;
   onChange: (value: T | null) => void;
   children: React.ReactNode;
@@ -25,7 +25,7 @@ const Wrapper = <T extends DateValue | DateRange>(props: WrapperProps<T>) => {
   return (
     <props.pickerComponent
       className={s["wrapper"]}
-      minValue={props.minValue}
+      {...(props.minValue !== undefined && { minValue: props.minValue })}
       value={props.value as any}
       onChange={props.onChange as any}
     >

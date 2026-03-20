@@ -3,11 +3,20 @@
   width: 12rem;
   /* hardcoded */
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas: "logo" "tablist" "themeswitcher";
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "logo" "tablist";
 
   padding: var(--sp-3);
   row-gap: var(--sp-2);
 
   background-color: var(--sidebar-bg);
+}
+
+.logo {
+  grid-area: logo;
+
+  width: 100%;
+  height: auto;
+
+  color: var(--sidebar-logo);
 }

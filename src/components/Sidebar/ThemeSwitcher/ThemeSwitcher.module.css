@@ -1,11 +1,14 @@
 .switch-button {
-  grid-area: themeswitcher;
-  justify-self: end;
+  position: absolute;
+  left: var(--sp-2);
+  bottom: var(--sp-2);
 
   aspect-ratio: 1;
   padding: var(--sp-2);
-  border-radius: var(--sp-2);
   border-radius: 50%;
+  border-radius: var(--sp-2);
+
+  border: var(--thin) solid var(--line);
 
   background-color: var(--theme-switcher-bg);
   color: var(--theme-switcher-icon);

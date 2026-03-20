@@ -1,5 +1,9 @@
 import type { ComponentType } from "react";
-import { TasksTabIcon, HistoryTabIcon } from "../../icons/tabIcons";
+import {
+  HomeTabIcon,
+  HistoryTabIcon,
+  TasksTabIcon,
+} from "../../icons/tabIcons";
 import type { PageId } from "../../../pages/Pages";
 
 type TabInfo = {
@@ -10,13 +14,13 @@ type TabInfo = {
 
 export const TABS: TabInfo[] = [
   {
+    pageId: "home",
+    name: "Home",
+    icon: HomeTabIcon,
+  },
+  {
     pageId: "tasks",
     name: "Tasks",
     icon: TasksTabIcon,
-  },
-  {
-    pageId: "history",
-    name: "History",
-    icon: HistoryTabIcon,
   },
 ];

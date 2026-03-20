@@ -6,7 +6,7 @@ import Input from "../blocks/Input/Input";
 import Popover from "../blocks/Popover/Popover";
 
 interface DateInputProps {
-  minValue: DateValue;
+  minValue?: DateValue;
   value: DateValue | null;
   onChange: (value: DateValue | null) => void;
 }
@@ -15,7 +15,7 @@ export const DateInput = (props: DateInputProps) => {
   return (
     <Wrapper
       label="Date"
-      minValue={props.minValue}
+      {...(props.minValue !== undefined && { minValue: props.minValue })}
       pickerComponent={DatePicker}
       value={props.value}
       onChange={props.onChange}

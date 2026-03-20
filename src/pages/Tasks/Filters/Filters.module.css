@@ -1,8 +1,7 @@
 .filters-container {
   grid-area: filters;
   height: 100%;
-  width: 15rem;
-  /* hardcoded */
+  width: 15rem; /* hardcoded */
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -14,4 +13,13 @@
 
   font-size: var(--m-font);
   color: var(--text);
+}
+
+.label {
+  width: 100%;
+  text-align: center;
+  padding-bottom: var(--sp-2);
+  border-bottom: var(--thin) solid var(--line);
+  font-size: var(--l-font);
+  font-weight: var(--bold-font-weight);
 }

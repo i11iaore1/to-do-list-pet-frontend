@@ -9,7 +9,7 @@ const DEADLINE_TYPE_CHOICES = [
   "null",
 ] as const;
 export type DeadlineTypeChoice = (typeof DEADLINE_TYPE_CHOICES)[number];
-export const DEFAULT_DEADLINE_TYPE: DeadlineTypeChoice = "all";
+export const DEFAULT_DEADLINE_TYPE: DeadlineTypeChoice = "today";
 
 export interface DeadlineFilterContextValue {
   deadlineType: DeadlineTypeChoice;
