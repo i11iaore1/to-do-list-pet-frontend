@@ -13,10 +13,6 @@
   width: auto;
 }
 
-.tab p {
-  font-size: var(--m-font);
-}
-
 .tab.current {
   background-color: var(--current-tab-bg);
 }

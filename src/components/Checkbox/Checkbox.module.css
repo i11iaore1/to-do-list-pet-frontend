@@ -6,6 +6,7 @@
 
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: fit-content;
   position: relative;
   column-gap: var(--sp);
@@ -25,8 +26,8 @@
 
   padding: var(--sp);
   border-radius: var(--sp-2);
-  height: var(--l-font);
-  font-size: var(--l-font);
+  height: var(--m-font);
+  font-size: var(--m-font);
 
   background-color: var(--facade-inactive-bg);
 
@@ -40,4 +41,8 @@
 
 .input:checked + .facade::after {
   content: "✓";
+}
+
+.label {
+  color: inherit;
 }

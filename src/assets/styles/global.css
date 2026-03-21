@@ -56,6 +56,9 @@
   --shadow: 0px 0px var(--sp) 0px var(--gray);
   --active: var(--blue);
 
+  /* components */
+  --input-bg: var(--lightest-gray);
+
   /* sidebar */
   --sidebar-bg: var(--dark-blue-gray);
   --sidebar-logo: var(--lightest-gray);
@@ -76,9 +79,6 @@
   --calendar-bg: var(--lightest-gray);
   --selected-calendar-cell-bg: var(--active);
   --selected-calendar-cell-text: var(--lightest-gray);
-  /* panel */
-  /* search */
-  --search-bg: var(--lightest-gray);
 
   /* card */
   --card-bg: var(--lightest-gray);
@@ -100,6 +100,9 @@
   --neutral-contrast: var(--lighter-gray);
   --line: var(--dark-gray);
 
+  /* components */
+  --input-bg: var(--darkest-gray);
+
   /* sidebar */
   --theme-switcher-bg: var(--darkest-gray);
   --theme-switcher-icon: var(--lighter-gray);
@@ -112,9 +115,7 @@
   --filters-bg: var(--darkest-gray);
   /* calendar */
   --calendar-bg: var(--darkest-gray);
-  /* panel */
-  /* search */
-  --search-bg: var(--darkest-gray);
+
   /* card */
   --card-bg: var(--dark-gray);
   --card-clickable-hover: var(--lighter-gray);
@@ -137,6 +138,7 @@
   border: none;
   outline: none;
 
+  font-size: var(--m-font);
   user-select: none;
 }
 

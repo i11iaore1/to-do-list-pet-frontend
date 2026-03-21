@@ -50,7 +50,6 @@
 }
 
 .grid th {
-  font-size: var(--m-font);
   font-weight: var(--bold-font-weight);
   padding-bottom: var(--sp);
 }

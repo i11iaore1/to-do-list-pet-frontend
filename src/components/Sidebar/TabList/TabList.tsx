@@ -16,7 +16,7 @@ const TabList = () => {
           <Tab
             path={path}
             name={tabInfo.name}
-            icon={tabInfo.icon}
+            {...(tabInfo.icon && { icon: tabInfo.icon })}
             isCurrent={location.pathname === path}
             key={tabInfo.pageId}
           />

@@ -1,0 +1,18 @@
+.input {
+  width: 100%;
+  padding: var(--sp) var(--sp-2);
+  border-radius: var(--sp-2);
+  border: var(--thin) solid var(--line);
+
+  background-color: var(--input-bg);
+  color: var(--text);
+}
+
+.input::placeholder {
+  color: var(--placeholder);
+}
+
+.input-container svg {
+  height: var(--m-font);
+  width: auto;
+}

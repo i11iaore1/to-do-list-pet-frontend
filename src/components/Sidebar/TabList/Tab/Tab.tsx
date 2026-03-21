@@ -6,7 +6,7 @@ import clsx from "clsx";
 export interface TabProps {
   path: string;
   name: string;
-  icon: React.ComponentType;
+  icon?: React.ComponentType;
   isCurrent: boolean;
 }
 
@@ -14,7 +14,7 @@ const Tab = (props: TabProps) => {
   return (
     <Link to={props.path}>
       <li className={clsx(s["tab"], { [s["current"]]: props.isCurrent })}>
-        <props.icon />
+        {props.icon && <props.icon />}
         <p>{props.name}</p>
       </li>
     </Link>

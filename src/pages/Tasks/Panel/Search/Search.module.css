@@ -1,5 +1,9 @@
 .search-container {
   grid-area: search;
+
+  box-sizing: content-box;
+  height: var(--m-font);
+  width: max-content;
   justify-self: center;
   align-self: center;
 
@@ -10,13 +14,12 @@
 
   border-radius: var(--sp);
 
-  background-color: var(--search-bg);
+  background-color: var(--input-bg);
   color: var(--placeholder);
   outline: var(--thin) solid var(--line);
 }
 
 .search-container input {
-  font-size: var(--m-font);
   background-color: inherit;
   color: var(--text);
 }
@@ -26,6 +29,6 @@
 }
 
 .search-container svg {
-  height: auto;
-  width: var(--m-font);
+  height: 100%;
+  width: auto;
 }

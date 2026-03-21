@@ -33,6 +33,7 @@
   align-items: center;
   text-wrap: nowrap;
   column-gap: var(--sp);
+  font-size: inherit;
 }
 
 .link:hover {

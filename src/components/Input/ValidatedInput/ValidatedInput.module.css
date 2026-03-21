@@ -1,0 +1,20 @@
+.validated-input-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--sp);
+}
+
+.error {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: var(--s-font);
+  color: var(--red);
+}
+
+.invalid {
+  border-color: var(--red);
+  outline: var(--thin) solid var(--red);
+}

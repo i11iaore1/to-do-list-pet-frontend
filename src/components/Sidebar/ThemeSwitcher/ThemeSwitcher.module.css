@@ -5,7 +5,6 @@
 
   aspect-ratio: 1;
   padding: var(--sp-2);
-  border-radius: 50%;
   border-radius: var(--sp-2);
 
   border: var(--thin) solid var(--line);

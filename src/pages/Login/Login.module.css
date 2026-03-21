@@ -1,0 +1,28 @@
+.login-container {
+  margin: auto;
+  width: min(300px, 100%);
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--sp-2);
+  padding: var(--sp-2);
+  border-radius: var(--sp-2);
+
+  border: var(--thin) solid var(--line);
+  color: var(--text);
+}
+
+.label {
+  align-self: center;
+  font-size: var(--l-font);
+  font-weight: var(--bold-font-weight);
+  line-height: var(--base-line-height);
+}
+
+.redirect {
+  align-self: center;
+  font-size: var(--s-font);
+}
+
+.redirect:hover {
+  color: var(--active);
+}
