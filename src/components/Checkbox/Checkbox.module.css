@@ -1,7 +1,7 @@
 .input-container {
   /* Redefine theese for custom styles */
-  --facade-inactive-bg: inherit;
-  --facade-active-bg: inherit;
+  --facade-inactive-bg: var(--input-bg);
+  --facade-active-bg: var(--facade-inactive-bg);
   --facade-active-color: inherit;
 
   display: flex;
@@ -31,7 +31,7 @@
 
   background-color: var(--facade-inactive-bg);
 
-  border: var(--thin) solid var(--card-clickable);
+  border: var(--thin) solid var(--line);
 }
 
 .input:checked + .facade {
