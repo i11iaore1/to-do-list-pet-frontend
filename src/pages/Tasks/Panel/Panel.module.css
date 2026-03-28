@@ -2,8 +2,12 @@
   grid-area: panel;
   width: 100%;
   display: grid;
-  column-gap: var(--sp);
+  column-gap: var(--sp-2);
   padding: var(--sp-2);
   grid-template-columns: 1fr auto;
   grid-template-areas: "search add-button";
+}
+
+.add-button {
+  grid-area: add-button;
 }

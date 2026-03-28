@@ -1,4 +1,4 @@
-import Main from "../../components/Main/Main";
+import Main from "../../components/pageBlocks/Main/Main";
 
 import s from "./DefaultLayout.module.css";
 

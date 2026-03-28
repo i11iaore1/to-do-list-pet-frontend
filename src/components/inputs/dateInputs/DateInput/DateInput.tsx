@@ -1,5 +1,5 @@
+import React from "react";
 import { DatePicker, Calendar, type DateValue } from "react-aria-components";
-
 import Wrapper from "../blocks/Wrapper/Wrapper";
 import Group from "../blocks/Group/Group";
 import Input from "../blocks/Input/Input";
@@ -11,7 +11,7 @@ interface DateInputProps {
   onChange: (value: DateValue | null) => void;
 }
 
-export const DateInput = (props: DateInputProps) => {
+export const DateInput = React.memo((props: DateInputProps) => {
   return (
     <Wrapper
       label="Date"
@@ -26,4 +26,4 @@ export const DateInput = (props: DateInputProps) => {
       <Popover calendarComponent={Calendar} />
     </Wrapper>
   );
-};
+});

@@ -5,8 +5,10 @@ import {
   useEffect,
   useCallback,
   useMemo,
+  useRef,
 } from "react";
-import { THEME_KEY } from "../config/localStorageKeys";
+
+const THEME_KEY = "theme";
 
 const THEME_CHOICES = ["light", "dark"] as const;
 type ThemeChoice = (typeof THEME_CHOICES)[number];
@@ -24,9 +26,13 @@ interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-const getLSTheme = (): ThemeChoice => {
+const getInitialTheme = (): ThemeChoice => {
   const lsRecord = localStorage.getItem(THEME_KEY);
-  return isThemeChoice(lsRecord) ? lsRecord : DEFAULT_THEME;
+  if (isThemeChoice(lsRecord)) {
+    return lsRecord;
+  }
+  setLSTheme(DEFAULT_THEME);
+  return DEFAULT_THEME;
 };
 
 const setLSTheme = (theme: ThemeChoice) => {
@@ -42,7 +48,9 @@ const setDOMTheme = (theme: ThemeChoice) => {
 };
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState<ThemeChoice>(getLSTheme);
+  const [theme, setTheme] = useState<ThemeChoice>(getInitialTheme);
+  const isFirstRender = useRef(true);
+
   const toggleTheme = useCallback(() => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   }, []);
@@ -63,7 +71,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     setDOMTheme(theme);
-    setLSTheme(theme);
+    isFirstRender.current ? (isFirstRender.current = false) : setLSTheme(theme);
   }, [theme]);
 
   const contextValue: ThemeContextValue = useMemo(

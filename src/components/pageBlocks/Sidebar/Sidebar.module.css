@@ -1,0 +1,19 @@
+.sidebar {
+  grid-area: sidebar;
+  width: 12rem; /* hardcoded */
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "logo" "tablist";
+
+  padding: var(--sp-2);
+  row-gap: var(--sp-2);
+
+  background-color: var(--sidebar-bg);
+}
+
+.logo {
+  grid-area: logo;
+  height: auto;
+
+  color: var(--sidebar-logo);
+}

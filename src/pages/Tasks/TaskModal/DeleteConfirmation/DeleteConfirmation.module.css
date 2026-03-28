@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--sp-2);
+}
+
+.label {
+  align-self: center;
+
+  font-size: var(--l-font);
+  font-weight: var(--bold-font-weight);
+  line-height: var(--base-line-height);
+}
+
+.description {
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,27 +1,25 @@
+import { useState } from "react";
+import SearchIcon from "../../../../components/icons/SearchIcon";
+
 import s from "./Search.module.css";
 
 const Search = () => {
+  const [search, setSearch] = useState<string>("");
+  // зв'язати із фільтрами
+  // оновлювати значення у фільтрах лише після затримки
+  // щоб робити менше запитів при послідовному друку
+
   return (
     <div className={s["search-container"]}>
-      <input type="text" placeholder="Search" />
+      <input
+        id="search"
+        type="text"
+        placeholder="Search"
+        value={search}
+        onChange={(event) => setSearch(event.target.value)}
+      />
       <SearchIcon />
     </div>
-  );
-};
-
-const SearchIcon = () => {
-  return (
-    <svg
-      version="1.0"
-      xmlns="http://www.w3.org/2000/svg"
-      width="276pt"
-      height="293pt"
-      viewBox="0 0 276 293"
-    >
-      <g transform="translate(0,293) scale(0.1,-0.1)">
-        <path d="M755 2901 c-187 -49 -342 -138 -469 -272 -96 -99 -155 -189 -205 -309 -56 -136 -74 -229 -74 -390 0 -115 4 -150 27 -235 90 -336 325 -589 648 -699 242 -83 500 -69 738 40 l80 37 43 -49 c23 -26 67 -77 98 -111 50 -57 56 -69 58 -111 1 -53 16 -104 40 -142 28 -45 542 -624 569 -642 42 -28 102 -23 148 11 93 70 270 239 288 275 32 66 22 83 -254 397 -138 156 -270 301 -293 323 -53 48 -100 72 -159 81 -44 7 -53 13 -143 116 -52 59 -95 112 -95 117 0 5 18 37 41 71 55 83 107 213 131 330 26 126 21 335 -12 456 -92 342 -362 612 -705 705 -61 17 -117 23 -235 26 -146 4 -161 3 -265 -25z m422 -206 c260 -60 473 -255 562 -517 67 -196 44 -431 -63 -622 -297 -531 -1063 -526 -1360 8 -231 415 -21 958 429 1111 127 44 295 51 432 20z" />
-      </g>
-    </svg>
   );
 };
 

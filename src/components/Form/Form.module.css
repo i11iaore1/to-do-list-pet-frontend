@@ -1,0 +1,13 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--sp-2);
+}
+
+.label {
+  align-self: center;
+
+  font-size: var(--l-font);
+  font-weight: var(--bold-font-weight);
+  line-height: var(--base-line-height);
+}

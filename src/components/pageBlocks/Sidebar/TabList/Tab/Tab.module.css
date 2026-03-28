@@ -1,0 +1,19 @@
+.tab {
+  display: flex;
+  flex-direction: row;
+  column-gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--sp-2);
+
+  color: var(--tab-text);
+}
+
+.tab svg {
+  height: var(--m-font);
+  width: var(--sp-6);
+  justify-content: center;
+}
+
+.tab.current {
+  background-color: var(--current-tab-bg);
+}

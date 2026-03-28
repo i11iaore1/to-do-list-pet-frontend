@@ -1,7 +1,7 @@
 .card-container {
   display: grid;
   grid-template-rows: 1fr auto;
-  grid-template-columns: auto 5fr 2fr auto auto;
+  grid-template-columns: auto 5fr 2fr var(--sp-4) var(--sp-4);
   grid-template-areas: "checkbox description status edit delete" "checkbox deadline status edit delete";
 
   row-gap: var(--sp);
@@ -46,6 +46,7 @@
   line-height: var(--base-line-height);
 
   display: -webkit-box;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -87,9 +88,13 @@
 }
 
 .button {
-  height: var(--sp-4);
-
   align-self: center;
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   color: var(--card-clickable);
   cursor: pointer;
 }

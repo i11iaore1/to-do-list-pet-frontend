@@ -1,5 +1,4 @@
 import {
-  Label,
   type DatePickerProps,
   type DateRange,
   type DateRangePickerProps,
@@ -28,8 +27,8 @@ const Wrapper = <T extends DateValue | DateRange>(props: WrapperProps<T>) => {
       {...(props.minValue !== undefined && { minValue: props.minValue })}
       value={props.value as any}
       onChange={props.onChange as any}
+      aria-label={props.label}
     >
-      <Label className={s["label"]}>{props.label}</Label>
       {props.children}
     </props.pickerComponent>
   );

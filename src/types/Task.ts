@@ -1,4 +1,4 @@
-import type { ISO8601String } from "./dates";
+import type { ISO8601String } from "./date";
 import type { Id } from "./Id";
 
 export interface TaskResponseInfo {
@@ -13,9 +13,10 @@ export interface TaskResponseInfo {
 
 export interface TaskInfo extends Pick<
   TaskResponseInfo,
-  "pk" | "description" | "is_closed" | "is_current"
+  "description" | "is_closed" | "is_current"
 > {
-  due_date: Date | null;
+  id: Id;
+  deadline: Date | null;
 }
 
 export interface UserTaskResponseInfo extends TaskResponseInfo {

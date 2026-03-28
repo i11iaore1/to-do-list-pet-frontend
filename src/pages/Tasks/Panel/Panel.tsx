@@ -1,12 +1,19 @@
+import Button from "../../../components/Button/Button";
 import Search from "./Search/Search";
-import AddButton from "./AddButton/AddButton";
+
 import s from "./Panel.module.css";
 
-const Panel = () => {
+interface PanelProps {
+  onCreate: () => void;
+}
+
+const Panel = (props: PanelProps) => {
   return (
     <div className={s["panel-container"]}>
       <Search />
-      <AddButton />
+      <Button onClick={props.onCreate} className={s["add-button"]}>
+        Create
+      </Button>
     </div>
   );
 };

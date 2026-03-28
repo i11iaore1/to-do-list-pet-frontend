@@ -7,8 +7,11 @@ import {
   useDeadlineFilter,
   type DeadlineTypeChoice,
 } from "../../../../../contexts/TaskFilterContext/subContexts/DeadlineFilterContext";
+import { useCallback } from "react";
+import type { DateRange, DateValue } from "react-aria-components";
+import React from "react";
 
-const DeadlineFilterChipList: ChipInfo<DeadlineTypeChoice>[] = [
+const DeadlineFilterChipList: readonly ChipInfo<DeadlineTypeChoice>[] = [
   {
     chipId: "today",
     title: "Today",
@@ -31,7 +34,9 @@ const DeadlineFilterChipList: ChipInfo<DeadlineTypeChoice>[] = [
   },
 ];
 
-const DeadlineSection = () => {
+// rerenders with tasks page if not memoized
+// has heavy date inputs
+const DeadlineSection = React.memo(() => {
   const {
     deadlineType,
     setDeadlineType,
@@ -41,6 +46,14 @@ const DeadlineSection = () => {
     setDateRange,
   } = useDeadlineFilter();
 
+  const handleDateValueChange = useCallback((value: DateValue | null) => {
+    setDateValue(value);
+  }, []);
+
+  const handleDateRangeChange = useCallback((value: DateRange | null) => {
+    setDateRange(value);
+  }, []);
+
   return (
     <FilterSection title="Deadline">
       <ChipGroup
@@ -49,23 +62,13 @@ const DeadlineSection = () => {
         setCurrentChipId={setDeadlineType}
       />
       {deadlineType === "date" && (
-        <DateInput
-          value={dateValue}
-          onChange={(value) => {
-            setDateValue(value);
-          }}
-        />
+        <DateInput value={dateValue} onChange={handleDateValueChange} />
       )}
       {deadlineType === "range" && (
-        <DateRangeInput
-          value={dateRange}
-          onChange={(value) => {
-            setDateRange(value);
-          }}
-        />
+        <DateRangeInput value={dateRange} onChange={handleDateRangeChange} />
       )}
     </FilterSection>
   );
-};
+});
 
 export default DeadlineSection;

@@ -1,0 +1,10 @@
+.modal {
+  width: min(20rem, 50%);
+  padding: var(--sp-2);
+  border-radius: var(--sp-2);
+
+  border: var(--thin) solid var(--line);
+
+  background-color: var(--main-bg);
+  color: var(--text);
+}

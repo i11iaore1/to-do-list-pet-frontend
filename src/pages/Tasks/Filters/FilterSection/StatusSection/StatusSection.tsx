@@ -6,7 +6,7 @@ import {
 } from "../../../../../contexts/TaskFilterContext/subContexts/StatusFilterContext";
 import FilterSection from "../FilterSection";
 
-const StatusChipList: ChipInfo<StatusChoice>[] = [
+const StatusChipList: readonly ChipInfo<StatusChoice>[] = [
   {
     chipId: "issued",
     title: "Issued",

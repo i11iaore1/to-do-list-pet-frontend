@@ -29,6 +29,7 @@
   /* colors */
 
   --black: rgb(0, 0, 0);
+  --transparent-black: rgba(0, 0, 0, 0.5);
   --darkest-gray: rgb(21, 24, 31);
   --dark-gray: rgb(37, 42, 48);
   --gray: rgb(129, 132, 139);
@@ -58,6 +59,9 @@
 
   /* components */
   --input-bg: var(--lightest-gray);
+  /* overlay */
+  --backdrop-bg: var(--transparent-black);
+  --overlay-bg: var(--main-bg);
 
   /* sidebar */
   --sidebar-bg: var(--dark-blue-gray);
@@ -139,7 +143,8 @@
   outline: none;
 
   font-size: var(--m-font);
-  user-select: none;
+  /* user-select: none; */
+  /* TODO розкоментувати */
 }
 
 html {

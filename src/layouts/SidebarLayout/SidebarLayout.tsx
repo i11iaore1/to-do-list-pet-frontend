@@ -1,5 +1,5 @@
-import Sidebar from "../../components/Sidebar/Sidebar";
-import Main from "../../components/Main/Main";
+import Main from "../../components/pageBlocks/Main/Main";
+import Sidebar from "../../components/pageBlocks/Sidebar/Sidebar";
 
 import s from "./SidebarLayout.module.css";
 

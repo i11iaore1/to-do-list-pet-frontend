@@ -1,0 +1,33 @@
+import { Navigate, useLocation } from "react-router-dom";
+import { useUserInfo } from "../hooks/user/useUserInfo";
+
+const PAGE_RESTRICTIONS = ["authorized", "not authorized"] as const;
+export type PageRestriction = (typeof PAGE_RESTRICTIONS)[number];
+
+interface PageRestrictorProps {
+  restriction: PageRestriction;
+  children: React.ReactNode;
+}
+
+const PageRestrictor = (props: PageRestrictorProps) => {
+  const { data: userInfo, isLoading } = useUserInfo();
+  const location = useLocation();
+
+  if (isLoading) return null;
+
+  if (props.restriction === "authorized" && !userInfo) {
+    // store route to return after login
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  if (props.restriction === "not authorized" && userInfo) {
+    // if previous route is stored return
+    // else go to tasks
+    const origin = location.state?.from?.pathname || "/tasks";
+    return <Navigate to={origin} replace />;
+  }
+
+  return <>{props.children}</>;
+};
+
+export default PageRestrictor;

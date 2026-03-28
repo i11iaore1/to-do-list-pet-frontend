@@ -9,8 +9,9 @@
   column-gap: var(--sp-2);
   padding: var(--sp) var(--sp-2);
   border-radius: var(--sp-2);
-
   border: var(--thin) solid var(--line);
+
+  background-color: var(--input-bg);
 }
 
 .cal-button {
