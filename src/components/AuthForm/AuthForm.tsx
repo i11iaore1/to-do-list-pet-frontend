@@ -5,7 +5,7 @@ import ValidatedInput, {
   type ValidatedInputProps,
 } from "../inputs/textInputs/ValidatedInput/ValidatedInput";
 import Checkbox from "../inputs/Checkbox/Checkbox";
-import Button from "../Button/Button";
+import Form from "../Form/Form";
 import { authStorageService } from "../../services/authService";
 import type { LoginFormFields } from "../../pages/Login/Login";
 
@@ -66,39 +66,42 @@ const AuthForm = <T extends AuthFormFields>({
     return setters;
   }, [formFieldInfoList]);
 
-  const handleClick = useCallback(() => {
-    const currentErrors = getFormErrors(formFields);
-    setErrors(currentErrors);
-    const isValid = !Object.values(currentErrors).some((error) => error);
-
-    if (isValid) {
+  const processAuthForm = useCallback(
+    (formFields: T) => {
       authStorageService.setStorage(
         isRememberMeChecked ? localStorage : sessionStorage,
       );
       processFormFields(formFields);
-    }
-  }, [formFields, isRememberMeChecked]);
+    },
+    [isRememberMeChecked],
+  );
 
   return (
-    <div className={s["form-container"]}>
-      <p className={s["label"]}>{label}</p>
-      {formFieldInfoList.map((formFieldInfo) => (
-        <ValidatedInput
-          id={formFieldInfo.id}
-          type={formFieldInfo.type}
-          placeholder={formFieldInfo.placeholder}
-          value={formFields[formFieldInfo.id]}
-          setValue={setters[formFieldInfo.id]}
-          error={errors[formFieldInfo.id]}
-          key={formFieldInfo.id}
+    <div className={s["auth-form"]}>
+      <Form
+        label={label}
+        formFields={formFields}
+        setErrors={setErrors}
+        getFormErrors={getFormErrors}
+        processFormFields={processAuthForm}
+      >
+        {formFieldInfoList.map((formFieldInfo) => (
+          <ValidatedInput
+            id={formFieldInfo.id}
+            type={formFieldInfo.type}
+            placeholder={formFieldInfo.placeholder}
+            value={formFields[formFieldInfo.id]}
+            setValue={setters[formFieldInfo.id]}
+            error={errors[formFieldInfo.id]}
+            key={formFieldInfo.id}
+          />
+        ))}
+        <Checkbox
+          label="Remember me"
+          isChecked={isRememberMeChecked}
+          onChange={(value: boolean) => setIsRememberMeChecked(value)}
         />
-      ))}
-      <Checkbox
-        label="Remember me"
-        isChecked={isRememberMeChecked}
-        onChange={(value: boolean) => setIsRememberMeChecked(value)}
-      />
-      <Button onClick={handleClick}>Submit</Button>
+      </Form>
       <Link to={redirectPath} className={s["redirect"]} replace>
         {redirectLabel}
       </Link>

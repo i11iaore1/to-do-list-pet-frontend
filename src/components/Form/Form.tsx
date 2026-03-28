@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import Button from "../Button/Button";
+import clsx from "clsx";
 
 import s from "./Form.module.css";
 
@@ -10,10 +11,11 @@ interface FormProps<T> {
   getFormErrors: (formFields: T) => T;
   processFormFields: (formFields: T) => void;
   children: React.ReactNode;
+  className?: string;
 }
 
 const Form = <T extends Record<string, any>>(props: FormProps<T>) => {
-  const handleClick = useCallback(() => {
+  const onSubmit = useCallback(() => {
     const currentErrors = props.getFormErrors(props.formFields);
     props.setErrors(currentErrors);
     const isValid = !Object.values(currentErrors).some((error) => error);
@@ -21,13 +23,13 @@ const Form = <T extends Record<string, any>>(props: FormProps<T>) => {
     if (isValid) {
       props.processFormFields(props.formFields);
     }
-  }, [props.formFields]);
+  }, [props.formFields, props.processFormFields]);
 
   return (
-    <div className={s["form-container"]}>
+    <div className={clsx(s["form-container"], props.className)}>
       <p className={s["label"]}>{props.label}</p>
       {props.children}
-      <Button onClick={handleClick}>Submit</Button>
+      <Button onClick={onSubmit}>Submit</Button>
     </div>
   );
 };
