@@ -7,6 +7,8 @@ import {
 } from "@internationalized/date";
 import type { ISO8601String } from "../types/date";
 
+export const TODAY_DATE = new Intl.DateTimeFormat("en-CA").format(new Date());
+
 export const DateToDateValue = (date: Date): DateValue => {
   return new CalendarDate(
     date.getFullYear(),

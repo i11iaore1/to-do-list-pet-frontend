@@ -1,32 +1,44 @@
-import { createContext, useCallback, useContext, useMemo } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import {
   DEFAULT_DEADLINE_TYPE,
   type DeadlineFilterContextValue,
-  type DeadlineTypeChoice,
 } from "./DeadlineFilterContext";
 import {
   DEFAULT_STATUS,
   type StatusChoice,
   type StatusFilterContextValue,
 } from "./StatusFilterContext";
-import type { DateRange, DateValue } from "react-aria-components";
+import { TODAY_DATE } from "../../../utils/date";
 
-interface StatusFilter {
-  value: StatusChoice;
-}
+type StatusQueryParams =
+  | { closed: true }
+  | { closed: false; current: boolean }
+  | Record<string, never>;
 
-interface DeadlineFilter {
-  type: DeadlineTypeChoice;
-  value: DateValue | DateRange | null;
-}
+const STATUS_MAP: Record<StatusChoice, StatusQueryParams> = {
+  issued: { closed: false, current: true },
+  closed: { closed: true },
+  expired: { closed: false, current: false },
+  all: {},
+};
 
-interface Filters {
-  status: StatusFilter;
-  deadline: DeadlineFilter;
-}
+type DeadlineQueryParams =
+  | { due_date: string }
+  | { no_due_date: true }
+  | { due_date_after: string; due_date_before: string }
+  | Record<string, never>;
+
+type FilterParams = StatusQueryParams & DeadlineQueryParams;
 
 interface TaskFiltersContextValue {
-  filters: Filters;
+  filterParams: FilterParams;
   resetFilters: () => void;
 }
 
@@ -38,33 +50,54 @@ interface TaskFiltersProviderProps
 }
 
 export const TaskFiltersProvider = (props: TaskFiltersProviderProps) => {
-  const statusFilter: StatusFilter = useMemo(
-    () => ({
-      value: props.status,
-    }),
-    [props.status],
+  const [filters, setFilters] = useState({
+    status: {} as StatusQueryParams,
+    deadline: {} as DeadlineQueryParams,
+  });
+
+  const filterParams = useMemo(
+    () => ({ ...filters.status, ...filters.deadline }) as FilterParams,
+    [filters],
   );
 
-  const deadlineFilter: DeadlineFilter = useMemo(
-    () => ({
-      type: props.deadlineType,
-      value:
-        props.deadlineType === "date"
-          ? props.dateValue
-          : props.deadlineType === "range"
-            ? props.dateRange
-            : null,
-    }),
-    [props.deadlineType, props.dateValue, props.dateRange],
-  );
+  useEffect(() => {
+    const statusParams: StatusQueryParams = STATUS_MAP[props.status];
+    const { deadlineType, dateValue, dateRange } = props;
 
-  const filters: Filters = useMemo(
-    () => ({
-      status: statusFilter,
-      deadline: deadlineFilter,
-    }),
-    [statusFilter, deadlineFilter],
-  );
+    setFilters((prev) => {
+      let deadlineParams: DeadlineQueryParams;
+
+      switch (deadlineType) {
+        case "today":
+          deadlineParams = { due_date: TODAY_DATE };
+          break;
+        case "null":
+          deadlineParams = { no_due_date: true };
+          break;
+        case "date":
+          deadlineParams = dateValue
+            ? { due_date: dateValue.toString() }
+            : prev.deadline;
+          break;
+        case "range":
+          deadlineParams = dateRange
+            ? {
+                due_date_after: dateRange.start.toString(),
+                due_date_before: dateRange.end.toString(),
+              }
+            : prev.deadline;
+          break;
+        case "all":
+          deadlineParams = {};
+          break;
+        default:
+          deadlineParams = {};
+          break;
+      }
+
+      return { status: statusParams, deadline: deadlineParams };
+    });
+  }, [props.status, props.deadlineType, props.dateValue, props.dateRange]);
 
   const resetFilters = useCallback(() => {
     props.setStatus(DEFAULT_STATUS);
@@ -74,7 +107,7 @@ export const TaskFiltersProvider = (props: TaskFiltersProviderProps) => {
   }, []);
 
   return (
-    <TaskFiltersContext.Provider value={{ filters, resetFilters }}>
+    <TaskFiltersContext.Provider value={{ filterParams, resetFilters }}>
       {props.children}
     </TaskFiltersContext.Provider>
   );

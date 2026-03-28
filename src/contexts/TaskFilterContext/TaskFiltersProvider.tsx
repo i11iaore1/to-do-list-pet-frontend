@@ -14,7 +14,7 @@ import {
 } from "./subContexts/StatusFilterContext";
 import { TaskFiltersProvider } from "./subContexts/TaskFiltersContext";
 
-// просто батьківський компонент із усіма визначеними станами
+// parrent which contains all filter-states
 export const TaskFilterStateManager = ({
   children,
 }: {
