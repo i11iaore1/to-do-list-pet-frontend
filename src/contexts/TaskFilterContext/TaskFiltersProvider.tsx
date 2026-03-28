@@ -13,6 +13,10 @@ import {
   type StatusFilterContextValue,
 } from "./subContexts/StatusFilterContext";
 import { TaskFiltersProvider } from "./subContexts/TaskFiltersContext";
+import {
+  DescriptionFilterProvider,
+  type DescriptionFilterContextValue,
+} from "./subContexts/DescriptionFilterContext";
 
 // parrent which contains all filter-states
 export const TaskFilterStateManager = ({
@@ -26,6 +30,7 @@ export const TaskFilterStateManager = ({
   );
   const [dateValue, setDateValue] = useState<DateValue | null>(null);
   const [dateRange, setDateRange] = useState<DateRange | null>(null);
+  const [description, setDescription] = useState<string>("");
 
   const statusContextValue: StatusFilterContextValue = useMemo(
     () => ({
@@ -47,12 +52,26 @@ export const TaskFilterStateManager = ({
     [deadlineType, dateValue, dateRange],
   );
 
+  const descriptionContextValue: DescriptionFilterContextValue = useMemo(
+    () => ({
+      description,
+      setDescription,
+    }),
+    [description, setDescription],
+  );
+
   return (
     <StatusFilterProvider contextValue={statusContextValue}>
       <DeadlineFilterProvider contextValue={deadlineContextValue}>
-        <TaskFiltersProvider {...statusContextValue} {...deadlineContextValue}>
-          {children}
-        </TaskFiltersProvider>
+        <DescriptionFilterProvider contextValue={descriptionContextValue}>
+          <TaskFiltersProvider
+            {...statusContextValue}
+            {...deadlineContextValue}
+            {...descriptionContextValue}
+          >
+            {children}
+          </TaskFiltersProvider>
+        </DescriptionFilterProvider>
       </DeadlineFilterProvider>
     </StatusFilterProvider>
   );
