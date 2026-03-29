@@ -9,25 +9,24 @@ interface PageRestrictorProps {
   children: React.ReactNode;
 }
 
-const PageRestrictor = (props: PageRestrictorProps) => {
+const PageRestrictor = ({ restriction, children }: PageRestrictorProps) => {
   const { data: userInfo, isLoading } = useUserInfo();
   const location = useLocation();
 
-  if (isLoading) return null;
-
-  if (props.restriction === "authorized" && !userInfo) {
+  if (restriction === "authorized" && !userInfo) {
+    if (isLoading) return null;
     // store route to return after login
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  if (props.restriction === "not authorized" && userInfo) {
+  if (restriction === "not authorized" && userInfo) {
     // if previous route is stored return
     // else go to tasks
     const origin = location.state?.from?.pathname || "/tasks";
     return <Navigate to={origin} replace />;
   }
 
-  return <>{props.children}</>;
+  return <>{children}</>;
 };
 
 export default PageRestrictor;
