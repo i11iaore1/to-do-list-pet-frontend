@@ -23,8 +23,7 @@ axiosClient.interceptors.request.use(
   },
 );
 
-// TODO прибрати export
-export const refreshToken = async (): Promise<string> => {
+const refreshToken = async (): Promise<string> => {
   const response = await axiosClient.post("/refresh/");
   const newAccessToken = response.data.access_token;
   authStorageService.setToken(newAccessToken);

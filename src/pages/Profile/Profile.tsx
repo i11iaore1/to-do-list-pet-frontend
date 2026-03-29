@@ -1,4 +1,3 @@
-import { refreshToken } from "../../api/axiosClient";
 import Button from "../../components/Button/Button";
 import { useLogout } from "../../hooks/user/useLogout";
 import { useUserInfo } from "../../hooks/user/useUserInfo";
@@ -21,7 +20,6 @@ const UserInfoAttribute = ({ name, value }: UserInfoAttributeProps) => {
 
 const Profile = () => {
   const { data: userInfo } = useUserInfo();
-
   const { mutate } = useLogout();
 
   const onClick = () => {
@@ -39,9 +37,6 @@ const Profile = () => {
       />
       <Button onClick={onClick} className={s["logout-button"]}>
         Logout
-      </Button>
-      <Button onClick={refreshToken} className={s["refresh-button"]}>
-        Refresh
       </Button>
     </div>
   );
