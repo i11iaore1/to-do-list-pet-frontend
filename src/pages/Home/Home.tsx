@@ -1,11 +1,11 @@
 import GithubIcon from "../../components/icons/GithubIcon";
-import LogoIcon from "../../components/icons/LogoIcon";
+import FullLogoIcon from "../../components/icons/FullLogoIcon";
 import s from "./Home.module.css";
 
 const Home = () => {
   return (
     <div className={s["home-container"]}>
-      <LogoIcon className={s["logo"]} />
+      <FullLogoIcon className={s["logo"]} />
       <p className={s["description"]}>
         Pet project by
         <a

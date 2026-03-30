@@ -1,10 +1,10 @@
 import clsx from "clsx";
 
-interface LogoIconProps {
+interface FullLogoIconProps {
   className?: string;
 }
 
-const LogoIcon = (props: LogoIconProps) => {
+const FullLogoIcon = (props: FullLogoIconProps) => {
   return (
     <svg
       className={clsx(props.className)}
@@ -27,4 +27,4 @@ const LogoIcon = (props: LogoIconProps) => {
   );
 };
 
-export default LogoIcon;
+export default FullLogoIcon;
