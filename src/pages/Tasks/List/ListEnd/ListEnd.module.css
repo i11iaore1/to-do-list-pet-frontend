@@ -1,0 +1,11 @@
+.intersection-observer {
+  box-sizing: content-box;
+  flex-shrink: 0;
+  height: var(--m-font);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--text);
+}
