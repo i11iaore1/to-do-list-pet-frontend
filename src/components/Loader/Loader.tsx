@@ -1,3 +1,4 @@
+import OnScreenMessage from "../OnScreenMessage/OnScreenMessage";
 import clsx from "clsx";
 
 import s from "./Loader.module.css";
@@ -8,9 +9,9 @@ interface LoaderProps {
 
 const Loader = (props: LoaderProps) => {
   return (
-    <div className={clsx(s["loader-container"], props.classname)}>
-      <p className={s["text"]}>Loading...</p>
-    </div>
+    <OnScreenMessage>
+      <p className={clsx(s["text"], props.classname)}>Loading...</p>
+    </OnScreenMessage>
   );
 };
 

@@ -5,8 +5,10 @@ import ListEnd from "./ListEnd/ListEnd";
 import TaskListItem from "./TaskListItem/TaskListItem";
 import { useTaskFilters } from "../../../contexts/TaskFilterContext/subContexts/TaskFiltersContext";
 import Loader from "../../../components/Loader/Loader";
+import Error from "../../../components/Error/Error";
 
 import s from "./List.module.css";
+import OnScreenMessage from "../../../components/OnScreenMessage/OnScreenMessage";
 
 interface TaskListProps {
   setTaskAction: React.Dispatch<React.SetStateAction<TaskCardAction>>;
@@ -34,12 +36,12 @@ const TaskList = (props: TaskListProps) => {
   }
 
   if (status === "error") {
-    return <div>Something went wrong</div>;
+    return <Error />;
   }
 
   if (data.pages[0].count === 0) {
     // No records in response
-    return <div>Nothing found</div>;
+    return <OnScreenMessage>Nothing found.</OnScreenMessage>;
   }
 
   return (
