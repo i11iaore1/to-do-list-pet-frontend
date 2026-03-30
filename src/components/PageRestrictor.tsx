@@ -1,5 +1,6 @@
 import { Navigate, useLocation } from "react-router-dom";
 import { useUserInfo } from "../hooks/user/useUserInfo";
+import Loader from "./Loader/Loader";
 
 const PAGE_RESTRICTIONS = ["authorized", "not authorized"] as const;
 export type PageRestriction = (typeof PAGE_RESTRICTIONS)[number];
@@ -14,7 +15,7 @@ const PageRestrictor = ({ restriction, children }: PageRestrictorProps) => {
   const location = useLocation();
 
   if (restriction === "authorized" && !userInfo) {
-    if (isLoading) return null;
+    if (isLoading) return <Loader />;
     // store route to return after login
     return <Navigate to="/login" state={{ from: location }} replace />;
   }

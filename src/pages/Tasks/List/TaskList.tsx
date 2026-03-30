@@ -4,6 +4,7 @@ import { usePaginatedTaskList } from "../../../hooks/tasks/useTaskList";
 import ListEnd from "./ListEnd/ListEnd";
 import TaskListItem from "./TaskListItem/TaskListItem";
 import { useTaskFilters } from "../../../contexts/TaskFilterContext/subContexts/TaskFiltersContext";
+import Loader from "../../../components/Loader/Loader";
 
 import s from "./List.module.css";
 
@@ -29,7 +30,7 @@ const TaskList = (props: TaskListProps) => {
   }, [listEndTriggerCondition, fetchNextPage]);
 
   if (status === "pending") {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (status === "error") {
@@ -55,7 +56,7 @@ const TaskList = (props: TaskListProps) => {
         </React.Fragment>
       ))}
       <ListEnd onTrigger={handleListEndTrigger}>
-        {isFetchingNextPage && <div>Loading...</div>}
+        {isFetchingNextPage && <Loader />}
       </ListEnd>
     </div>
   );
