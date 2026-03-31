@@ -23,7 +23,6 @@ const ListEnd = (props: ListEndProps) => {
       const timeoutId = setTimeout(() => {
         if (inView) {
           // if list end is still visible after n ms - trigger
-          console.log("triggered");
           props.onTrigger();
         }
       }, VISIBLE_FOR_MS);
