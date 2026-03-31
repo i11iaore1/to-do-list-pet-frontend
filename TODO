@@ -1,0 +1,17 @@
+GENERAL:
+
+- review render-optimization with profiler
+- (optional) adaptive/responsive design
+- (optional) tests
+
+PROFILE:
+
+- edit profile feature
+- delete profile feature
+
+TASKS:
+
+- time/datetime input instead of date inputs in modal windows (simple but timetaking)
+- redesign cards (cards with "expired" state still have a checkbox, which should be pressed to reissue them)
+- if status filter is set to "expired", "no deadline" option in deadline section should disappear
+- if date or date range are set to past interval, "issued" option in status section should disappear
