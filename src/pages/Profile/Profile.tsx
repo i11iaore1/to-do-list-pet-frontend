@@ -22,9 +22,9 @@ const Profile = () => {
   const { data: userInfo } = useUserInfo();
   const { mutate } = useLogout();
 
-  const onClick = () => {
-    mutate();
-  };
+  if (!userInfo) {
+    return null;
+  }
 
   return (
     <div className={s["profile-container"]}>
@@ -35,7 +35,7 @@ const Profile = () => {
         name="Joined on"
         value={new Date(userInfo.created_at).toLocaleString()}
       />
-      <Button onClick={onClick} className={s["logout-button"]}>
+      <Button onClick={mutate} className={s["logout-button"]}>
         Logout
       </Button>
     </div>

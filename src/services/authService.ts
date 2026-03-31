@@ -1,4 +1,4 @@
-const ACCESS_TOKEN_KEY = "accessToken";
+export const ACCESS_TOKEN_KEY = "accessToken";
 const DEFAULT_STORAGE = sessionStorage;
 
 // if token is already in LS set currentStorage to LS
